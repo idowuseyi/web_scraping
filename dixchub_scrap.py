@@ -15,8 +15,11 @@ for post in soup.find_all("article", class_="type-post"):
     title = post.a.text
     print("Title: ", title)
 
-    summary = post.p.text
-    print("Brief: ", summary)
+    try:
+        summary = post.p.text
+        print("Brief: ", summary)
+    except Exception as e:
+        summary = None
 
     link = post.a["href"]
     print("url: ", link)
